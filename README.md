@@ -5,14 +5,16 @@ Works on Void Linux, tested only through git clone.
 
 INSTALL
 
-git clone https://github.com/quiltedstars/whiskermenu-nofavorites.git
+```git clone https://github.com/quiltedstars/whiskermenu-nofavorites.git
 cd whiskermenu-nofavorites
 cmake -B build -S . -DCMAKE_INSTALL_PREFIX=/usr
 cmake --build build
 cmake --install build
+```
 
 UNINSTALL
-cmake --build build --target uninstall
+```cmake --build build --target uninstall
+```
 
 TO USE ON XFCE
 Right click the panel and click panel > panel preferences, or make your preferred way into panel settings. Add Whisker Menu into Items. 
