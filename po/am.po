@@ -1,0 +1,535 @@
+# Amharic translation of xfce4-whiskermenu-plugin.
+# Copyright (C) 2018 Graeme Gott
+# This file is distributed under the same license as the xfce4-whiskermenu-plugin package.
+#
+# Translators:
+# samson <sambelet@yahoo.com>, 2016-2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Whisker Menu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-12 12:49-0500\n"
+"PO-Revision-Date: 2018-05-01 14:33+0000\n"
+"Last-Translator: samson <sambelet@yahoo.com>\n"
+"Language-Team: Amharic (http://www.transifex.com/gottcode/xfce4-whiskermenu-"
+"plugin/language/am/)\n"
+"Language: am\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../panel-plugin/settings-dialog.cpp:1005
+msgid "Add action"
+msgstr "ተግባር መጨመሪያ"
+
+#: ../panel-plugin/page.cpp:393
+msgid "Add to Desktop"
+msgstr "ወደ ዴስክቶፕ መጨመሪያ"
+
+#: ../panel-plugin/page.cpp:382
+msgid "Add to Favorites"
+msgstr "ወደ የምወደው መጨመሪያ"
+
+#: ../panel-plugin/page.cpp:397
+msgid "Add to Panel"
+msgstr "ወደ ክፍል መጨመሪያ"
+
+#: ../panel-plugin/category.cpp:50
+msgid "All Applications"
+msgstr "ሁሉም ፕሮግራሞች"
+
+#: ../panel-plugin/plugin.cpp:409
+msgid "Alternate application launcher for Xfce"
+msgstr "አማራጭ መተግበሪያ ማስጀመሪያ ለ Xfce"
+
+#: ../panel-plugin/settings-dialog.cpp:895
+msgid "Amount of _items:"
+msgstr "የ _እቃዎች መጠን:"
+
+#: ../panel-plugin/settings-dialog.cpp:738
+#, fuzzy
+msgid "Application icon si_ze:"
+msgstr "ፕሮግራም ፈላጊ"
+
+#: ../panel-plugin/plugin.cpp:213
+msgid "Applications"
+msgstr "መተግበሪያዎች"
+
+#: ../panel-plugin/launcher.cpp:232
+#, c-format
+msgid "Are you sure you want to hide \"%s\"?"
+msgstr "በ እርግጥ መደበቅ ይፈልጋሉ \"%s\"?"
+
+#: ../panel-plugin/settings.cpp:156
+msgid "Are you sure you want to log out?"
+msgstr "በ እርግጥ መውጣት ይፈልጋሉ?"
+
+#: ../panel-plugin/settings.cpp:162
+msgid "Are you sure you want to restart?"
+msgstr "በ እርግጥ እንደገና ማስጀመር ይፈልጋሉ?"
+
+#: ../panel-plugin/settings.cpp:168
+msgid "Are you sure you want to shut down?"
+msgstr "በ እርግጥ ማጥፋት ይፈልጋሉ?"
+
+#: ../panel-plugin/settings-dialog.cpp:778
+msgid "Background opacit_y:"
+msgstr "የ መደብ ግልጽነ_ት: "
+
+#: ../panel-plugin/command-edit.cpp:49
+msgid "Browse the file system to choose a custom command."
+msgstr "የ ፋይል ስርአት መቃኛ የ ትእዛዝ ማስተካከያ ለ መምረጥ"
+
+#: ../panel-plugin/settings-dialog.cpp:1062
+msgid "C_ommand:"
+msgstr "ት_እዛዝ:"
+
+#: ../panel-plugin/settings-dialog.cpp:756
+msgid "Categ_ory icon size:"
+msgstr "የ ምድ_ብ ምልክት መጠን:"
+
+#: ../panel-plugin/recent-page.cpp:173
+msgid "Clear Recently Used"
+msgstr "በ ቅርብ የተጠቀሙትን ማጽጃ"
+
+#: ../panel-plugin/plugin.cpp:410
+msgid "Copyright © 2013-2020 Graeme Gott"
+msgstr "Copyright © 2013-2020 Graeme Gott"
+
+#: ../panel-plugin/settings-dialog.cpp:1033
+msgid "Details"
+msgstr "ዝርዝሮች"
+
+#: ../panel-plugin/settings-dialog.cpp:808
+msgid "Di_splay:"
+msgstr "ማሳ_ያ:"
+
+#: ../panel-plugin/settings-dialog.cpp:912
+msgid "Display by _default"
+msgstr "በ _ነባር ማሳያ"
+
+#: ../panel-plugin/settings.cpp:174
+msgid "Do you want to suspend to RAM?"
+msgstr "እርስዎ RAM ማገድ ይፈልጋሉ?"
+
+#: ../panel-plugin/settings.cpp:180
+msgid "Do you want to suspend to disk?"
+msgstr "እርስዎ ዲስኩን ማገድ ይፈልጋሉ?"
+
+#: ../panel-plugin/page.cpp:404
+msgid "Edit Application..."
+msgstr "መተግበሪያ ማረሚያ..."
+
+#: ../panel-plugin/settings.cpp:191
+msgid "Edit _Profile"
+msgstr "_ገጽታ ማረሚያ"
+
+#: ../panel-plugin/settings.cpp:193
+msgid "Failed to edit profile."
+msgstr "ገጽታ ማረም አልተቻለም"
+
+#: ../panel-plugin/launcher.cpp:318 ../panel-plugin/launcher.cpp:392
+#: ../panel-plugin/run-action.cpp:41 ../panel-plugin/search-action.cpp:189
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "ትእዛዝ መፈጸም አልተቻለም \"%s\"."
+
+#: ../panel-plugin/settings.cpp:179
+msgid "Failed to hibernate."
+msgstr ""
+
+#: ../panel-plugin/settings.cpp:189
+msgid "Failed to launch menu editor."
+msgstr "የ ዝርዝር ማረሚያ ማስጀመር አልተቻለም"
+
+#: ../panel-plugin/settings.cpp:147
+msgid "Failed to lock screen."
+msgstr "መመልከቻውን መቆለፍ አልተቻለም"
+
+#: ../panel-plugin/settings.cpp:155 ../panel-plugin/settings.cpp:185
+msgid "Failed to log out."
+msgstr "መውጣት አልተቻለም"
+
+#: ../panel-plugin/settings.cpp:143
+msgid "Failed to open settings manager."
+msgstr "የ ማሰናጃ አስተዳዳሪ መክፈት አልተቻለም"
+
+#: ../panel-plugin/settings.cpp:161
+msgid "Failed to restart."
+msgstr ""
+
+#: ../panel-plugin/settings.cpp:167
+msgid "Failed to shut down."
+msgstr ""
+
+#: ../panel-plugin/settings.cpp:173
+msgid "Failed to suspend."
+msgstr ""
+
+#: ../panel-plugin/settings.cpp:151
+#, fuzzy
+msgid "Failed to switch user."
+msgstr "ተጠቃሚ መቀየር አልተቻለም"
+
+#: ../panel-plugin/window.cpp:154
+msgid "Favorites"
+msgstr "የምወደቸው"
+
+#: ../panel-plugin/settings.cpp:181
+#, c-format
+msgid "Hibernating computer in %d seconds."
+msgstr ""
+
+#: ../panel-plugin/launcher.cpp:231 ../panel-plugin/page.cpp:408
+msgid "Hide Application"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.cpp:813
+msgid "Icon"
+msgstr "ምልክት"
+
+#: ../panel-plugin/settings-dialog.cpp:815
+msgid "Icon and title"
+msgstr "ምልክት እና አርእስት"
+
+#: ../panel-plugin/settings-dialog.cpp:906
+msgid "Include _favorites"
+msgstr "_የምወዳቸውን ማካተቻ"
+
+#: ../panel-plugin/icon-size.cpp:54
+msgid "Large"
+msgstr "ትልቅ"
+
+#: ../panel-plugin/icon-size.cpp:55
+msgid "Larger"
+msgstr "በጣም ትልቅ"
+
+#: ../panel-plugin/settings.cpp:183
+msgid "Log Ou_t..."
+msgstr ""
+
+#: ../panel-plugin/settings.cpp:153
+msgid "Log _Out"
+msgstr "መው_ጫ"
+
+#: ../panel-plugin/settings.cpp:157
+#, c-format
+msgid "Logging out in %d seconds."
+msgstr "በ መውጣት ላይ በ %d ሰከንዶች"
+
+#: ../panel-plugin/settings.cpp:129
+msgid "Man Pages"
+msgstr "ማን ገጾች"
+
+#: ../panel-plugin/settings-dialog.cpp:870
+msgid "Menu"
+msgstr "ዝርዝር"
+
+#: ../panel-plugin/settings-dialog.cpp:1037
+msgid "Nam_e:"
+msgstr "ስ_ም:"
+
+#: ../panel-plugin/settings-dialog.cpp:983
+msgid "Name"
+msgstr "ስም"
+
+#: ../panel-plugin/icon-size.cpp:49
+msgid "None"
+msgstr "ምንም"
+
+#: ../panel-plugin/icon-size.cpp:53
+msgid "Normal"
+msgstr "መደበኛ"
+
+#: ../panel-plugin/settings.cpp:133
+msgid "Open URI"
+msgstr "URI መክፈቻ"
+
+#: ../panel-plugin/settings-dialog.cpp:988
+msgid "Pattern"
+msgstr "ድግግሞሽ"
+
+#: ../panel-plugin/settings-dialog.cpp:722
+msgid "Position _search entry next to panel button"
+msgstr "የ _መፈለጊያ ቦታ ማስገቢያ ከ ክፍል ቁልፍ አጠገብ "
+
+#: ../panel-plugin/settings-dialog.cpp:716
+msgid "Position cate_gories next to panel button"
+msgstr "የ ምድ_ቦች ቦታ ከ ክፍል ቁልፍ አጠገብ "
+
+#: ../panel-plugin/settings-dialog.cpp:728
+msgid "Position commands next to search _entry"
+msgstr "የ ትእዛዝ ቦታ ከ መፈለጊያ  አጠገብ _ማስገቢያ"
+
+#: ../panel-plugin/settings-dialog.cpp:891 ../panel-plugin/window.cpp:162
+msgid "Recently Used"
+msgstr "በቅርብ የተጠቀሙት"
+
+#: ../panel-plugin/settings-dialog.cpp:512
+#, c-format
+msgid "Remove action \"%s\"?"
+msgstr "ተግባር ማስወገጃ \"%s\"?"
+
+#: ../panel-plugin/page.cpp:388
+msgid "Remove from Favorites"
+msgstr "ከምወዳቸው ውስጥ ማስወገጃ"
+
+#: ../panel-plugin/settings-dialog.cpp:1014
+msgid "Remove selected action"
+msgstr "የ ተመረጠውን ተግባር ማስወገጃ"
+
+#: ../panel-plugin/settings.cpp:163
+#, c-format
+msgid "Restarting computer in %d seconds."
+msgstr "ኮምፒዩተሩን እንደገና በማስጀመር ላይ በ %d ሰከንዶች"
+
+#: ../panel-plugin/run-action.cpp:71
+#, c-format
+msgid "Run %s"
+msgstr "ማስኬጃ %s"
+
+#: ../panel-plugin/settings.cpp:132
+msgid "Run in Terminal"
+msgstr "በ ተርሚናል ውስጥ ማስኬጃ"
+
+#: ../panel-plugin/settings-dialog.cpp:119
+msgid "Search Actio_ns"
+msgstr "ተግባሮች መፈለ_ጊያ"
+
+#: ../panel-plugin/search-action.cpp:260
+msgid "Search Action"
+msgstr "ተግባሮች መፈለጊያ"
+
+#: ../panel-plugin/command-edit.cpp:64
+msgid "Select Command"
+msgstr "ትእዛዝ ይምረጡ"
+
+#: ../panel-plugin/settings-dialog.cpp:302
+msgid "Select an Icon"
+msgstr "ምልክት ይምረጡ"
+
+#: ../panel-plugin/settings-dialog.cpp:921
+msgid "Session Commands"
+msgstr ""
+
+#: ../panel-plugin/whiskermenu.desktop.in:6
+msgid "Show a menu to easily access installed applications"
+msgstr "የ ተገጠሙ መተግበሪያዎች በ ቀላሉ በ ዝርዝር ውስጥ ማሳያ"
+
+#: ../panel-plugin/settings-dialog.cpp:705
+msgid "Show application _descriptions"
+msgstr "የ መተግበሪያ _መግለጫዎች ማሳያ"
+
+#: ../panel-plugin/settings-dialog.cpp:699
+msgid "Show application too_ltips"
+msgstr "የ መተግበሪያ መሳሪያ_ጫፍ ማሳያ"
+
+#: ../panel-plugin/settings-dialog.cpp:613
+msgid "Show as _icons"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.cpp:630
+#, fuzzy
+msgid "Show as lis_t"
+msgstr "መጋጠሚ_ያ ማሳያ"
+
+#: ../panel-plugin/settings-dialog.cpp:648
+#, fuzzy
+msgid "Show as t_ree"
+msgstr "_ክፈፍ ማሳያ"
+
+#: ../panel-plugin/settings-dialog.cpp:925
+msgid "Show c_onfirmation dialog"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.cpp:692
+msgid "Show cate_gory names"
+msgstr "የ ምድ_ቦች ስም ማሳያ"
+
+#: ../panel-plugin/settings-dialog.cpp:686
+msgid "Show generic application _names"
+msgstr "ባጠቃላይ የ መተገበሪያዎች _ስሞች ማሳያ"
+
+#: ../panel-plugin/settings.cpp:165
+msgid "Shut _Down"
+msgstr "_ማጥፊያ"
+
+#: ../panel-plugin/icon-size.cpp:52
+msgid "Small"
+msgstr "ትንሽ"
+
+#: ../panel-plugin/icon-size.cpp:51
+msgid "Smaller"
+msgstr "በጣም ትንሽ"
+
+#: ../panel-plugin/favorites-page.cpp:147
+msgid "Sort Alphabetically A-Z"
+msgstr "መለያ በ ፊደል ቅደም ተከተል A-Z"
+
+#: ../panel-plugin/favorites-page.cpp:151
+msgid "Sort Alphabetically Z-A"
+msgstr "መለያ በ ፊደል ቅደም ተከተል A-Z"
+
+#: ../panel-plugin/settings-dialog.cpp:880
+msgid "Stay _visible when focus is lost"
+msgstr ""
+
+#: ../panel-plugin/settings.cpp:171
+msgid "Suspe_nd"
+msgstr ""
+
+#: ../panel-plugin/settings.cpp:175
+#, c-format
+msgid "Suspending computer in %d seconds."
+msgstr ""
+
+#: ../panel-plugin/settings.cpp:149
+#, fuzzy
+msgid "Switch _User"
+msgstr "_ተጠቃሚ መቀየሪያ"
+
+#: ../panel-plugin/settings-dialog.cpp:874
+msgid "Switch categories by _hovering"
+msgstr "ምድቦች በ _ማንሳፈፍ መቀየሪያ"
+
+#: ../panel-plugin/settings-dialog.cpp:511
+msgid "The action will be deleted permanently."
+msgstr "ተግባሩ በቋሚነት ይጠፋል"
+
+#: ../panel-plugin/settings-dialog.cpp:814
+msgid "Title"
+msgstr "አርእስት"
+
+#: ../panel-plugin/launcher.cpp:226
+#, c-format
+msgid ""
+"To unhide it you have to manually remove the file \"%s\" or open the file "
+"and remove the line \"%s\"."
+msgstr ""
+
+#: ../panel-plugin/settings.cpp:169
+#, c-format
+msgid "Turning off computer in %d seconds."
+msgstr "ኮምፒዩተሩን ማጥፋት ይፈልጋሉ በ %d ሰከንዶች"
+
+#: ../panel-plugin/page.cpp:470
+msgid "Unable to add launcher to desktop."
+msgstr "ወደ ዴስክቶፕ ማስጀመሪያ መጨመር አልተቻለም"
+
+#: ../panel-plugin/page.cpp:508 ../panel-plugin/page.cpp:517
+msgid "Unable to add launcher to panel."
+msgstr "ወደ ክፍል ማስጀመሪያ መጨመር አልተቻለም"
+
+#: ../panel-plugin/page.cpp:546
+msgid "Unable to edit launcher."
+msgstr "ማስጀመሪያ ማረም አልተቻለም"
+
+#: ../panel-plugin/settings-dialog.cpp:572
+#, c-format
+msgid "Unable to open the following url: %s"
+msgstr "መክፈት አልተቻለም የሚቀጥለውን url: %s"
+
+#: ../panel-plugin/settings-dialog.cpp:849
+msgid "Use a single _panel row"
+msgstr "ይጠቀሙ ነጠላ የ _ክፍል ረድፍ"
+
+#: ../panel-plugin/icon-size.cpp:56
+msgid "Very Large"
+msgstr "በጣም ትልቅ"
+
+#: ../panel-plugin/icon-size.cpp:50
+msgid "Very Small"
+msgstr "በጣም ትንሽ"
+
+#: ../panel-plugin/settings.cpp:130
+msgid "Web Search"
+msgstr "በ ዌብ ውስጥ መፈለጊያ"
+
+#: ../panel-plugin/settings-dialog.cpp:94
+#: ../panel-plugin/settings-dialog.cpp:101
+#: ../panel-plugin/whiskermenu.desktop.in:5
+msgid "Whisker Menu"
+msgstr "የ ዊስከር ዝርዝር"
+
+#: ../panel-plugin/settings.cpp:131
+msgid "Wikipedia"
+msgstr "ዊኪፒዲያ"
+
+#: ../panel-plugin/settings-dialog.cpp:115
+msgid "_Appearance"
+msgstr "_አቀራረብ"
+
+#: ../panel-plugin/settings-dialog.cpp:117
+msgid "_Behavior"
+msgstr "_ባህሪ"
+
+#: ../panel-plugin/command-edit.cpp:67 ../panel-plugin/settings-dialog.cpp:304
+msgid "_Cancel"
+msgstr "_መሰረዣ"
+
+#: ../panel-plugin/settings-dialog.cpp:98
+#: ../panel-plugin/settings-dialog.cpp:105
+msgid "_Close"
+msgstr "_መዝጊያ"
+
+#: ../panel-plugin/settings-dialog.cpp:118
+msgid "_Commands"
+msgstr "_ትእዛዞች"
+
+#: ../panel-plugin/settings-dialog.cpp:510
+msgid "_Delete"
+msgstr "_ማጥፊያ"
+
+#: ../panel-plugin/settings.cpp:187
+msgid "_Edit Applications"
+msgstr "መተግበሪያዎች _ማረሚያ"
+
+#: ../panel-plugin/settings-dialog.cpp:97
+#: ../panel-plugin/settings-dialog.cpp:104
+msgid "_Help"
+msgstr "_እርዳታ"
+
+#: ../panel-plugin/settings.cpp:177
+msgid "_Hibernate"
+msgstr "_ማስተኛ"
+
+#: ../panel-plugin/settings-dialog.cpp:836
+msgid "_Icon:"
+msgstr "_ምልክት:"
+
+#: ../panel-plugin/settings.cpp:145
+msgid "_Lock Screen"
+msgstr "መመልከቻ መቆለፊያ"
+
+#: ../panel-plugin/command-edit.cpp:68 ../panel-plugin/settings-dialog.cpp:305
+msgid "_OK"
+msgstr "_እሺ"
+
+#: ../panel-plugin/settings-dialog.cpp:116
+msgid "_Panel Button"
+msgstr "የ ክፍል ቁልፍ"
+
+#: ../panel-plugin/settings-dialog.cpp:1050
+msgid "_Pattern:"
+msgstr "_ድግግሞሽ:"
+
+#: ../panel-plugin/settings-dialog.cpp:1074
+msgid "_Regular expression"
+msgstr "_መደበኛ አገላለጽ"
+
+#: ../panel-plugin/settings.cpp:159
+msgid "_Restart"
+msgstr "እንደገና ማስጀመሪያ"
+
+#: ../panel-plugin/settings.cpp:141
+msgid "_Settings Manager"
+msgstr ""
+
+#: ../panel-plugin/settings-dialog.cpp:824
+msgid "_Title:"
+msgstr "_አርእስት: "
+
+#: ../panel-plugin/plugin.cpp:414
+msgid "translator-credits"
+msgstr "ምስጋና-ለ ተርጓሚዎች"
