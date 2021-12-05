@@ -34,7 +34,7 @@ using namespace WhiskerMenu;
 //-----------------------------------------------------------------------------
 
 FavoritesPage::FavoritesPage(Window* window) :
-	Page(window, "document-open-favorites", _("Used"))
+	Page(window, "document-open-favorites", _("Favourites"))
 {
 	// Prevent going over max
 	if (wm_settings->favorites.size() > wm_settings->favorites_items_max)
@@ -167,7 +167,7 @@ void FavoritesPage::extend_context_menu(GtkWidget* menu)
 	GtkWidget* menuitem = gtk_separator_menu_item_new();
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuitem);
 
-	menuitem = whiskermenu_image_menu_item_new("edit-clear", _("Clear Favoritesly Used"));
+	menuitem = whiskermenu_image_menu_item_new("edit-clear", _("Clear Favorites"));
 	connect(menuitem, "activate",
 		[this](GtkMenuItem*)
 		{
