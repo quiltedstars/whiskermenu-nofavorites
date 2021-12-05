@@ -194,11 +194,20 @@ WhiskerMenu::Window::Window(Plugin* plugin) :
 		});
 
 	// Create favorites
+	m_favorites = new FavoritesPage(this);
+
+	CategoryButton* favorites_button = m_favorites->get_button();
+	connect(favorites_button->get_widget(), "toggled",
+		[this](GtkToggleButton*)
+		{
+			favorites_toggled();
+		});
 
 	// Create recent
 	m_recent = new RecentPage(this);
 
 	CategoryButton* recent_button = m_recent->get_button();
+	recent_button->join_group(favorites_button);
 	connect(recent_button->get_widget(), "toggled",
 		[this](GtkToggleButton*)
 		{
@@ -275,11 +284,13 @@ WhiskerMenu::Window::Window(Plugin* plugin) :
 	gtk_grid_attach(m_contents_box, GTK_WIDGET(m_panels_stack), 0, 1, 1, 1);
 	gtk_widget_set_hexpand(GTK_WIDGET(m_panels_stack), true);
 	gtk_widget_set_vexpand(GTK_WIDGET(m_panels_stack), true);
+	gtk_stack_add_named(m_panels_stack, m_favorites->get_widget(), "favorites");
 	gtk_stack_add_named(m_panels_stack, m_recent->get_widget(), "recent");
 	gtk_stack_add_named(m_panels_stack, m_applications->get_widget(), "applications");
 
 	// Create box for packing sidebar
 	m_category_buttons = GTK_BOX(gtk_box_new(GTK_ORIENTATION_VERTICAL, 0));
+	gtk_box_pack_start(m_category_buttons, favorites_button->get_widget(), false, false, 0);
 	gtk_box_pack_start(m_category_buttons, recent_button->get_widget(), false, false, 0);
 	gtk_box_pack_start(m_category_buttons, applications_button->get_widget(), false, false, 0);
 	gtk_box_pack_start(m_category_buttons, gtk_separator_new(GTK_ORIENTATION_HORIZONTAL), false, false, 4);
@@ -346,6 +357,7 @@ WhiskerMenu::Window::~Window()
 	delete m_applications;
 	delete m_search_results;
 	delete m_recent;
+	delete m_favorites;
 
 	delete m_profile;
 
@@ -392,6 +404,7 @@ void WhiskerMenu::Window::show(const Position position)
 {
 	// Handle switching view types
 	m_search_results->update_view();
+	m_favorites->update_view();
 	m_recent->update_view();
 	m_applications->update_view();
 
@@ -399,12 +412,14 @@ void WhiskerMenu::Window::show(const Position position)
 	if (wm_settings->launcher_show_tooltip)
 	{
 		m_search_results->get_view()->show_tooltips();
+		m_favorites->get_view()->show_tooltips();
 		m_recent->get_view()->show_tooltips();
 		m_applications->get_view()->show_tooltips();
 	}
 	else
 	{
 		m_search_results->get_view()->hide_tooltips();
+		m_favorites->get_view()->hide_tooltips();
 		m_recent->get_view()->hide_tooltips();
 		m_applications->get_view()->hide_tooltips();
 	}
@@ -415,6 +430,9 @@ void WhiskerMenu::Window::show(const Position position)
 	{
 		command->check();
 	}
+
+	m_favorites->enforce_item_count();
+	gtk_widget_set_visible(m_favorites->get_button()->get_widget(), wm_settings->favorites_items_max);
 
 	// Make sure recent item count is within max
 	m_recent->enforce_item_count();
@@ -439,12 +457,14 @@ void WhiskerMenu::Window::show(const Position position)
 	show_default_page();
 
 	// Make sure icon sizes are correct
+	m_favorites->get_button()->reload_icon_size();
 	m_recent->get_button()->reload_icon_size();
 	m_applications->get_button()->reload_icon_size();
 
 	m_applications->reload_category_icon_size();
 
 	m_search_results->get_view()->reload_icon_size();
+	m_favorites->get_view()->reload_icon_size();
 	m_recent->get_view()->reload_icon_size();
 	m_applications->get_view()->reload_icon_size();
 
@@ -600,9 +620,15 @@ void WhiskerMenu::Window::set_categories(const std::vector<CategoryButton*>& cat
 void WhiskerMenu::Window::set_items()
 {
 	m_search_results->set_menu_items();
-
+	m_favorites->set_menu_items();
 	m_recent->set_menu_items();
 
+	// Handle switching to favorites are added
+	connect(m_favorites->get_view()->get_model(), "row-inserted",
+		[this](GtkTreeModel*, GtkTreePath*, GtkTreeIter*)
+		{
+			show_favorites();
+		});
 }
 
 //-----------------------------------------------------------------------------
@@ -628,6 +654,7 @@ void WhiskerMenu::Window::set_loaded()
 void WhiskerMenu::Window::unset_items()
 {
 	m_search_results->unset_menu_items();
+	m_favorites->unset_menu_items();
 	m_recent->unset_menu_items();
 }
 
@@ -646,6 +673,10 @@ gboolean WhiskerMenu::Window::on_key_press_event(GtkWidget* widget, GdkEventKey*
 	if (gtk_stack_get_visible_child(m_contents_stack) == m_search_results->get_widget())
 	{
 		page = m_search_results;
+	}
+	else if (m_favorites->get_button()->get_active())
+	{
+		page = m_favorites;
 	}
 	else if (m_recent->get_button()->get_active())
 	{
@@ -728,6 +759,7 @@ gboolean WhiskerMenu::Window::on_key_press_event_after(GtkWidget* widget, GdkEve
 
 gboolean WhiskerMenu::Window::on_map_event()
 {
+	m_favorites->reset_selection();
 	m_recent->reset_selection();
 	m_applications->reset_selection();
 
@@ -856,6 +888,13 @@ void WhiskerMenu::Window::check_scrollbar_needed()
 
 //-----------------------------------------------------------------------------
 
+void WhiskerMenu::Window::favorites_toggled()
+{
+	m_favorites->reset_selection();
+	gtk_stack_set_visible_child_name(m_panels_stack, "favorites");
+	gtk_widget_grab_focus(GTK_WIDGET(m_search_entry));
+}
+
 //-----------------------------------------------------------------------------
 
 void WhiskerMenu::Window::recent_toggled()
@@ -883,22 +922,44 @@ void WhiskerMenu::Window::reset_default_button()
 	case Settings::CategoryRecent:
 		m_default_button = m_recent->get_button();
 		gtk_box_reorder_child(m_category_buttons, m_recent->get_button()->get_widget(), 0);
-		gtk_box_reorder_child(m_category_buttons, m_applications->get_button()->get_widget(), 1);
+		gtk_box_reorder_child(m_category_buttons, m_favorites->get_button()->get_widget(), 1);
+		gtk_box_reorder_child(m_category_buttons, m_applications->get_button()->get_widget(), 2);
 		break;
 
 	case Settings::CategoryAll:
 		m_default_button = m_applications->get_button();
 		gtk_box_reorder_child(m_category_buttons, m_applications->get_button()->get_widget(), 0);
+		gtk_box_reorder_child(m_category_buttons, m_favorites->get_button()->get_widget(), 1);
+		gtk_box_reorder_child(m_category_buttons, m_recent->get_button()->get_widget(), 2);
+		break;
+
+	default:
+		m_default_button = m_favorites->get_button();
+		gtk_box_reorder_child(m_category_buttons, m_favorites->get_button()->get_widget(), 0);
 		gtk_box_reorder_child(m_category_buttons, m_recent->get_button()->get_widget(), 1);
+		gtk_box_reorder_child(m_category_buttons, m_applications->get_button()->get_widget(), 2);
 		break;
 	}
 }
 
 //-----------------------------------------------------------------------------
+
+void WhiskerMenu::Window::show_favorites()
+{
+	// Switch to favorites panel
+	m_favorites->get_button()->set_active(true);
+
+	// Clear search entry
+	gtk_entry_set_text(m_search_entry, "");
+	gtk_widget_grab_focus(GTK_WIDGET(m_search_entry));
+}
+
 //-----------------------------------------------------------------------------
 
 void WhiskerMenu::Window::show_default_page()
 {
+	// Switch to favorites panel
+	m_default_button->set_active(true);
 
 	// Clear search entry
 	gtk_entry_set_text(m_search_entry, "");

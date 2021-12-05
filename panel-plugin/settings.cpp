@@ -64,9 +64,10 @@ Settings::Settings() :
 
 	default_category("default-category", CategoryFavorites, CategoryFavorites, CategoryAll),
 
+	favorites_items_max("favorites-items-max", 100, 0, 100),
+
 	recent_items_max("recent-items-max", 10, 0, 100),
 	favorites_in_recent("favorites-in-recent", true),
-	favorites_items_max("favorites-items-max", 10, 0, 100),
 
 	position_search_alternate("position-search-alternate", false),
 	position_commands_alternate("position-commands-alternate", false),
@@ -237,6 +238,8 @@ void Settings::load(gchar* file)
 	}
 	default_category.load(rc);
 
+	favorites_items_max.load(rc);
+
 	recent_items_max.load(rc);
 	favorites_in_recent.load(rc);
 	if (!recent_items_max && (default_category == CategoryRecent))
@@ -320,6 +323,8 @@ void Settings::save(gchar* file)
 	view_mode.save(rc);
 
 	default_category.save(rc);
+
+	favorites_items_max.save(rc);
 
 	recent_items_max.save(rc);
 	favorites_in_recent.save(rc);

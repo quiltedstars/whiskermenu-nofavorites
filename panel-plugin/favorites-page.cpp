@@ -34,12 +34,13 @@ using namespace WhiskerMenu;
 //-----------------------------------------------------------------------------
 
 FavoritesPage::FavoritesPage(Window* window) :
-	Page(window, "document-open-recent", _("Favorites"))
+	Page(window, "document-open-favorites", _("Used"))
 {
+	// Prevent going over max
 	if (wm_settings->favorites.size() > wm_settings->favorites_items_max)
 	{
 		wm_settings->favorites.resize(wm_settings->favorites_items_max);
-	}	
+	}
 }
 
 //-----------------------------------------------------------------------------
@@ -57,13 +58,12 @@ void FavoritesPage::add(Launcher* launcher)
 	{
 		return;
 	}
-
-	launcher->set_flag(Launcher::FavoriteFlag, true);
+	launcher->set_flag(Launcher::FavoritesFlag, true);
 
 	std::string desktop_id = launcher->get_desktop_id();
 	if (!wm_settings->favorites.empty())
 	{
-		auto i = std::find(wm_settings->recent.begin(), wm_settings->favorites.end(), desktop_id);
+		auto i = std::find(wm_settings->favorites.begin(), wm_settings->favorites.end(), desktop_id);
 
 		// Skip if already first launcher
 		if (i == wm_settings->favorites.begin())
@@ -114,7 +114,7 @@ void FavoritesPage::enforce_item_count()
 		Launcher* launcher = get_window()->get_applications()->find(wm_settings->favorites[i]);
 		if (launcher)
 		{
-			launcher->set_flag(Launcher::FavoriteFlag, false);
+			launcher->set_flag(Launcher::FavoritesFlag, false);
 		}
 
 		GtkTreeIter iter;
@@ -136,7 +136,7 @@ void FavoritesPage::flag_items(bool enabled)
 		Launcher* launcher = get_window()->get_applications()->find(favorites);
 		if (launcher)
 		{
-			launcher->set_flag(Launcher::FavoriteFlag, enabled);
+			launcher->set_flag(Launcher::FavoritesFlag, enabled);
 		}
 	}
 }
@@ -167,7 +167,7 @@ void FavoritesPage::extend_context_menu(GtkWidget* menu)
 	GtkWidget* menuitem = gtk_separator_menu_item_new();
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuitem);
 
-	menuitem = whiskermenu_image_menu_item_new("edit-clear", _("Clear Favorites Used"));
+	menuitem = whiskermenu_image_menu_item_new("edit-clear", _("Clear Favoritesly Used"));
 	connect(menuitem, "activate",
 		[this](GtkMenuItem*)
 		{

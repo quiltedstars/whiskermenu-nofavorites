@@ -257,6 +257,11 @@ void Page::launcher_activated(GtkTreePath* path)
 		}
 	}
 
+	// Hide window
+	m_window->hide();
+
+	// Execute app
+	element->run(gtk_widget_get_screen(m_widget));
 }
 
 //-----------------------------------------------------------------------------
@@ -276,9 +281,7 @@ void Page::launcher_action_activated(GtkMenuItem* menuitem, DesktopAction* actio
 
 	// Execute app
 	m_selected_launcher->run(gtk_widget_get_screen(GTK_WIDGET(menuitem)), action);
-
-	g_assert(m_selected_launcher);
-}	
+}
 
 //-----------------------------------------------------------------------------
 
@@ -442,6 +445,7 @@ void Page::create_context_menu(GtkTreePath* path, GdkEvent* event)
 		menuitem = gtk_separator_menu_item_new();
 		gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuitem);
 	}
+
 
 	menuitem = whiskermenu_image_menu_item_new("list-add", _("Add to Desktop"));
 	connect(menuitem, "activate",

@@ -103,8 +103,6 @@ private:
 	// Recently Used
 	GtkWidget* m_remember_favorites;
 	GtkWidget* m_recent_items_max;
-	
-	//Favorites
 	GtkWidget* m_favorites_items_max;
 
 	// Session Commands

@@ -287,11 +287,11 @@ public:
 		CategoryAll
 	};
 	Integer default_category;
+	
+	Integer favorites_items_max;
 
 	Integer recent_items_max;
 	Boolean favorites_in_recent;
-	
-	Integer favorites_items_max;
 
 	Boolean position_search_alternate;
 	Boolean position_commands_alternate;

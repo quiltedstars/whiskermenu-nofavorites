@@ -893,6 +893,32 @@ GtkWidget* SettingsDialog::init_behavior_tab()
 		{
 			wm_settings->favorites_in_recent = gtk_toggle_button_get_active(button);
 		});
+		
+		
+	// FAVORITES
+	
+	GtkGrid* favorites_table = GTK_GRID(gtk_grid_new());
+	gtk_grid_set_column_spacing(favorites_table, 12);
+	gtk_grid_set_row_spacing(favorites_table, 6);
+
+	GtkWidget* favorites_frame = make_aligned_frame(_("Favs Used"), GTK_WIDGET(favorites_table));
+	gtk_box_pack_start(page, favorites_frame, false, false, 0);
+	
+	label = gtk_label_new_with_mnemonic(_("Favorites Nu_mber:"));
+	gtk_widget_set_halign(label, GTK_ALIGN_START);
+	m_favorites_items_max = gtk_spin_button_new_with_range(0, 100, 1);
+	gtk_grid_attach(favorites_table, m_favorites_items_max, 1, 0, 1, 1);
+	gtk_label_set_mnemonic_widget(GTK_LABEL(label), m_favorites_items_max);
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(m_favorites_items_max), wm_settings->favorites_items_max);
+
+	connect(m_favorites_items_max, "value-changed",
+		[this](GtkSpinButton* button)
+		{
+			wm_settings->favorites_items_max = gtk_spin_button_get_value_as_int(button);
+
+			const bool active = wm_settings->favorites_items_max;
+			gtk_widget_set_sensitive(GTK_WIDGET(m_display_favorites), active);
+		});		
 
 
 	// Create command buttons section

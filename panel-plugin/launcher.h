@@ -119,7 +119,7 @@ public:
 	enum SearchFlag
 	{
 		RecentFlag = 0x1,
-		FavoriteFlag = 0x1
+		FavoritesFlag = 0x2
 	};
 	void set_flag(SearchFlag flag, bool enabled);
 

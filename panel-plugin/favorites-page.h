@@ -20,8 +20,6 @@
 
 #include "page.h"
 
-#include <vector>
-
 namespace WhiskerMenu
 {
 
@@ -40,6 +38,7 @@ public:
 private:
 	void extend_context_menu(GtkWidget* menu) override;
 };
+
 }
 
 #endif // WHISKERMENU_FAVORITES_PAGE_H
