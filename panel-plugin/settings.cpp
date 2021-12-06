@@ -64,7 +64,7 @@ Settings::Settings() :
 
 	default_category("default-category", CategoryFavorites, CategoryFavorites, CategoryAll),
 
-	favorites_items_max("favorites-items-max", 100, 0, 100),
+	favorites_items_max("favorites-items-max", 10, 0, 100),
 
 	recent_items_max("recent-items-max", 10, 0, 100),
 	favorites_in_recent("favorites-in-recent", true),
